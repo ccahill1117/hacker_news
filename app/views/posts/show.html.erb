@@ -1,0 +1,16 @@
+<%= link_to "Return to Topic", topic_path(@topic) %>
+
+<h1>Topic Subject: <%= @topic.subject %> </h1>
+<h2>Post Title:  <%= @post.title %></h2>
+<h3>Post Link to Article : <a href="http://www.<%= @post.url%>"><%=@post.url%></a></h3>
+
+
+<%= render 'comments/form' %>
+
+<% @comments.each do |comment| %>
+  <p><%= comment.text %>
+    <ul>
+      <li><%= comment.author %></li>
+    </ul>
+  </p>
+<% end %>

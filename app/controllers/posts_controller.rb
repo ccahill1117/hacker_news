@@ -7,6 +7,13 @@ class PostsController < ApplicationController
     redirect_to topic_path(@topic)
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @topic = @post.topic
+    @comments = @post.comments
+    @comment = Comment.new
+  end
+
 
   private
     def topic_params

@@ -6,4 +6,5 @@
 
 <% @topic.posts.each do |post| %>
   <p> <a href="http://www.<%= post.url%>"> <%= post.title %></a> <span><%= link_to "comments", post_path(post) %></span> </p>
+  <p><%=post.description%></p>
 <% end %>
