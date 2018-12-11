@@ -1,0 +1,5 @@
+<h1>Hacker News Topics</h1>
+
+<% @topics.each do |topic| %>
+  <p> <%= link_to topic.subject, topic_path(topic) %> </p>
+<% end %>

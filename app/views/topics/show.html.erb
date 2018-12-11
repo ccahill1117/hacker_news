@@ -1,0 +1,9 @@
+<%= link_to "Return to Topics", topics_path %>
+
+<h2> <%= @topic.subject %> </h2>
+
+<%= render "posts/form" %>
+
+<% @topic.posts.each do |post| %>
+  <p> <a href="http://www.<%= post.url%>"> <%= post.title %></a> <span><%= link_to "comments", post_path(post) %></span> </p>
+<% end %>
