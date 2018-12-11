@@ -1,5 +1,9 @@
-<h1>Hacker News Topics</h1>
+<h1>Hacker News Topics:</h1>
 
+<%= render 'topics/form'%>
+
+<% count = 1 %>
 <% @topics.each do |topic| %>
-  <p> <%= link_to topic.subject, topic_path(topic) %> </p>
+  <p> <%=count%> : <%= link_to topic.subject, topic_path(topic) %> </p>
+  <% count = count + 1%>
 <% end %>

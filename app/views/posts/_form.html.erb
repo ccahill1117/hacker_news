@@ -1,0 +1,9 @@
+<%= form_for [@topic, @post] do |t| %>
+  <%= t.label :title %>
+  <%= t.text_field :title %>
+  <%= t.label :description %>
+  <%= t.text_field :description %>
+  <%= t.label :url %>
+  <%= t.text_field :url %>
+  <%= t.submit %>
+<% end %>
