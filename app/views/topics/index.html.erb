@@ -1,9 +1,26 @@
-<h1>Hacker News Topics:</h1>
+<div class="row topic_div">
+
+
+<%= image_tag "y.gif" %>
+<p><strong>Hacker News </strong></p><span class="pagetop">
+    | <a href="#">new</a>  |
+  <a href="#">comments</a>  |
+  <a href="#">show</a>  |
+  <a href="#">ask</a>  |
+  <a href="#">jobs</a>  |
+  <a href="#">submit</a></span>
+</div>
+
 
 <%= render 'topics/form'%>
 
 <% count = 1 %>
 <% @topics.each do |topic| %>
-  <p> <%=count%> : <%= link_to topic.subject, topic_path(topic) %> </p>
+  <!-- <div class="row topic"> -->
+    <p> <%=count%> : <%= link_to topic.subject, topic_path(topic) %> </p>
+  <!-- </div>
+  <div class="row topic"> -->
+    <p class="subtext"><%= topic.posts.count %> comments</p>
+  <!-- </div> -->
   <% count = count + 1%>
 <% end %>

@@ -1,10 +1,27 @@
+
 <%= link_to "Return to Topics", topics_path %>
 
-<h2> <%= @topic.subject %> </h2>
+<div class="row topic_div">
 
+  <%= image_tag "y.gif" %>
+  <p><strong>Hacker News </strong></p>
+  <span class="pagetop">
+      | <a href="#">new</a>  |
+    <a href="#">comments</a>  |
+    <a href="#">show</a>  |
+    <a href="#">ask</a>  |
+    <a href="#">jobs</a>  |
+    <a href="#">submit</a>
+  </span>
+</div>
+
+
+<p>Topic: <%= @topic.subject %> </p>
 <%= render "posts/form" %>
 
 <% @topic.posts.each do |post| %>
-  <p> <a href="http://www.<%= post.url%>"> <%= post.title %></a> <span><%= link_to "comments", post_path(post) %></span> </p>
-  <p><%=post.description%></p>
+<p> <a href="http://www.<%= post.url%>"> <%= post.title %></a> </p>
+<!-- <p><%=post.description%></p> -->
+<a class="subtext" href="/posts/<%= post.id %>"> <%= post.comments.count %> comments</a>
+<p class="subtext"> <%= post.since %> minutes</p>
 <% end %>
