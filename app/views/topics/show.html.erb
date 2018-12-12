@@ -4,9 +4,9 @@
 <div class="row topic_div">
 
   <%= image_tag "y.gif" %>
-  <p><strong>Hacker News </strong></p>
   <span class="pagetop">
-      | <a href="#">new</a>  |
+  <strong>Hacker News </strong> |
+    <a href="#">new</a>  |
     <a href="#">comments</a>  |
     <a href="#">show</a>  |
     <a href="#">ask</a>  |
@@ -16,12 +16,16 @@
 </div>
 
 
-<p>Topic: <%= @topic.subject %> </p>
-<%= render "posts/form" %>
+<!-- <p>Topic: <%= @topic.subject %> </p> -->
+<div class="topic">
+  <% count = 1 %>
+  <% @topic.posts.each do |post| %>
+    <a class="link_black" href="http://www.<%= post.url%>"> <span class="subtext2"> <%= count %>.</span> <%= post.title %></a>
+    <p class="subtext subtextEnd"><a class="subtext" href="/posts/<%= post.id %>"> <%= post.comments.count %> comments</a> <%= post.since.floor %> minutes</p>
+    <% count = count + 1 %>
+  <% end %>
+</div>
 
-<% @topic.posts.each do |post| %>
-<p> <a href="http://www.<%= post.url%>"> <%= post.title %></a> </p>
-<!-- <p><%=post.description%></p> -->
-<a class="subtext" href="/posts/<%= post.id %>"> <%= post.comments.count %> comments</a>
-<p class="subtext"> <%= post.since %> minutes</p>
-<% end %>
+
+
+<%= render "posts/form" %>
